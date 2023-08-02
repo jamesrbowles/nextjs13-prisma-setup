@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Listings {
+  ID          Int     @id @default(autoincrement())
+  Title       String  @db.VarChar(255)
+  Description String  @db.Text
+  Bedrooms    Int
+  Bathrooms   Int
+  Price       Decimal @db.Decimal(10, 2)
+}
+
+
